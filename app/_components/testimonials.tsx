@@ -4,74 +4,56 @@ import { ChevronLeft, ChevronRight, Stethoscope , Scissors, Syringe, CarTaxiFron
 import { WhatsappLogoIcon } from "@phosphor-icons/react"
 import type { ElementType } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+// import tutor1 from '../../public/tutor1.jpg'
+// import tutor2 from '../../public/tutor2.jpg'
+import Image from 'next/image'
+import type { StaticImageData } from 'next/image'
 
-interface Service {
-  title: string;
-  description: string;
-  duration: string;
-  price: string;
-  icon: ElementType;
-  linkText: string;
+interface Testimonials {
+  content: string;
+  author: string;
+  role: string;
+  image?: StaticImageData;
 }
 
-const services: Service[] = [
+const testimonials: Testimonials[] = [
   {
-    title: "Consultas Veterinárias",
-    description: "Atendimento clínico completo com avaliação geral da saúde do pet, incluindo consultas presenciais e a domicílio.",
-    duration: "30 min",
-    price: "R$ 100,00",
-    icon: Stethoscope,
-    linkText: "Olá! Veja as informações no site, gostaria de agendar,"
+    content:
+      "Desde que comecei a levar a Luna para banho e tosa aqui, ela nunca esteve tão feliz! O atendimento é impecável, os profissionais são super cuidadosos e sempre deixam minha peluda linda e cheirosa. Recomendo de olhos fechados!",
+    author: "Mariana Souza",
+    role: "Tutora da Luna (Golden Retriever)",
+    // image: tutor2,
   },
   {
-    title: "Exames e Diagnósticos",
-    description: "Exames laboratoriais, ultrassom e raio-X com tecnologia moderna para diagnósticos rápidos e precisos.",
-    duration: "1 h",
-    price: "R$ 150,00",
-    icon: Microscope,
-    linkText: "Olá! Veja as informações no site, gostaria de agendar,",
+    content:
+      "O serviço de hotel para pets foi uma experiência incrível! Precisei viajar e fiquei tranquilo sabendo que o Thor estava sendo bem cuidado. Recebi fotos e atualizações diárias, e ele voltou para casa super feliz! Sem dúvida, o melhor petshop da região.",
+    author: "Rafael",
+    role: "Tutor do Thor (Bulldog Francês)",
+    // image: tutor1,
   },
   {
-    title: "Vacinação e Vermifugação",
-    description: "Aplicação de vacinas e vermífugos conforme o calendário indicado, mantendo seu pet sempre protegido.",
-    duration: "20 min",
-    price: "R$ 80,00",
-    icon: Syringe,
-    linkText: "Olá! Veja as informações no site, gostaria de agendar,",
+    content:
+      "Meus gatos nunca gostaram de sair de casa, mas o atendimento nesse petshop fez toda a diferença. A equipe é muito paciente e cuidadosa, e o serviço de banho especializado para felinos foi maravilhoso! Agora sei onde confiar o cuidado deles.",
+    author: "Camila Fernandes",
+    role: "Tutora da Mel e do Max",
+    // image: tutor2
   },
   {
-    title: "Banho e Tosa",
-    description: "Inclui banho com produtos específicos, corte de unhas, limpeza das orelhas e tosa personalizada (higiênica ou estilizada).",
-    duration: "45 min",
-    price: "R$ 80,00",
-    icon: Scissors,
-    linkText: "Olá! Veja as informações no site, gostaria de agendar,",
+    content:
+      "Adotei a Nina recentemente e trouxe ela para a primeira consulta aqui. Fiquei impressionado com o carinho, atenção e explicações detalhadas sobre os cuidados iniciais. Ela se sentiu super segura! Só tenho a agradecer.",
+    author: "Diego Martins",
+    role: "Tutor da Nina (Vira-lata Caramelo)",
+    // image: tutor1,
   },
   {
-    title: "Hotel Canino",
-    description: "Hospedagem segura e confortável, com alimentação balanceada, recreação e cuidados dedicados.",
-    duration: "Diária",
-    price: "R$ 90,00",
-    icon: Hotel,
-    linkText: "Olá! Veja as informações no site, gostaria de reservar,",
+    content:
+      "Meu idosinho já não tem tanta energia, então precisava de um atendimento especial. Fui surpreendida pela paciência, cuidado e acompanhamento constante. Finalmente encontrei um lugar em que confio de verdade!",
+    author: "Beatriz Lima",
+    role: "Tutora do Simba (Poodle)",
+    // image: tutor2,
   },
-  {
-    title: "Rações e Acessórios",
-    description: "Variedade de rações premium, petiscos saudáveis e acessórios modernos para o seu pet.",
-    duration: "—",
-    price: "Sob consulta",
-    icon: ShoppingBag,
-    linkText: "Olá! Veja as informações no site, gostaria de conferir,",
-  },
-  {
-    title: "Táxi Dog",
-    description: "Transporte seguro e confortável para levar e buscar seu pet onde for necessário.",
-    duration: "Conforme trajeto",
-    price: "A partir de R$ 30,00",
-    icon: CarTaxiFront,
-    linkText: "Olá! Veja as informações no site, gostaria de solicitar,",
-  }
 ];
+
 
 export function Testimonials() { 
 
@@ -99,14 +81,22 @@ export function Testimonials() {
                       <div className='overflow-hidden' ref={emblaRef}>
 
                         <div className='flex'>
-                          {services.map((item) => {
-                            const Icon = item.icon;
+                          {testimonials.map((item) => {
+                            //const Icon = item.icon;
                             return (
-                              <div key={item.title} className='flex-[0_0_100%] min-w-0 px-3'>
+                              <div key={item.content} className='flex-[0_0_100%] px-3'>
                                 <article className='bg-[#1e293b] text-white rounded-2xl p-6 space-y-4 h-full flex flex-col'>
-
-                                    
-
+                                  <div className=' flex flex-col items-center text-center space-y-4'>
+                                    <div >
+                                      <h2 className=' text-3xl text-center font-bold'> {item.author} </h2>
+                                    </div>
+                                    <div>
+                                      <p className='text-gray-400 select-none'>"{item.content}"</p>
+                                    </div>
+                                    <div>
+                                      <span className='text-sm italic text-gray-500'>- {item.role} -</span>
+                                    </div>
+                                  </div>
                                 </article>
                               </div>
                             )
