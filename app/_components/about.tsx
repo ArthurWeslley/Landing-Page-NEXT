@@ -60,6 +60,7 @@ export function About() {
                             </a>
                             <a
                                 href="https://maps.app.goo.gl/81wMjDfaTMxP1Vq1A"
+                                target="_blank"
                                 className="flex gap-2 items-center justify-center px-4 py-2"
                             >
                                 <MapPin className="text-black w-5 h-5" />
