@@ -33,7 +33,8 @@ export function Hero() {
                     </p>
 
                     <div>
-                        <a href="#"
+                        <a href={`https://wa.me/5591987125924?text=Olá vim pelo site e gostaria de mais informações.`}
+                        target="_blank"
                         className="bg-green-500 px-5 py-2 rounded-md text-white font-semibold flex items-center 
                         justify-center w-fit gap-2"
                         >
